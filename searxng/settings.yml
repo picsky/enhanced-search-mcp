@@ -1,8 +1,11 @@
-# SearXNG settings - optimized for China network (verified engines only)
+# SearXNG settings - optimized for China network
+# All engine names verified against official SearXNG source (2026.3.6)
+# DNS resolution handled by Docker container dns config (docker-compose.yml)
+
 use_default_settings:
   engines:
     keep_only:
-      # === General Search (verified working from China) ===
+      # === General Search ===
       - bing
       - baidu
       - sogou
@@ -18,36 +21,23 @@ use_default_settings:
       - unsplash
       - pexels
       - pixabay images
-      - adobe stock
-      - artic
-      - deviantart
-      - openverse
-      - svgrepo
-      - selfhst icons
-      - devicons
-      - lucide
       # === News ===
       - bing news
       - mojeek news
       - presearch news
-      - reuters
       # === Videos ===
       - bing videos
       - bilibili
       - iqiyi
       - acfun
-      - niconico
       - presearch videos
-      - pixabay videos
       # === Academic & Science ===
       - arxiv
       - pubmed
       - semantic scholar
       - crossref
       - openalex
-      - openairepublications
-      - openairedatasets
-      # === Code & Dev (verified working) ===
+      # === Code & Dev ===
       - github
       - gitlab
       - gitea.com
@@ -57,13 +47,10 @@ use_default_settings:
       - stackoverflow
       - superuser
       - askubuntu
-      - discuss.python
       - pypi
       - npm
       - crates.io
       - pub.dev
-      - hex
-      - hoogle
       - lib.rs
       - rubygems
       - packagist
@@ -72,25 +59,13 @@ use_default_settings:
       - anaconda
       - metacpan
       - huggingface
-      - huggingface datasets
-      - huggingface spaces
       - ollama
       # === Wiki & Reference ===
-      # wikipedia/wikidata removed: timeout on China servers
-      - wikibooks
-      - wiktionary
-      - wikisource
       - mdn
       - microsoft learn
       - arch linux wiki
-      - gentoo
-      - nixos wiki
-      - alpine linux packages
       - wordnik
       - etymonline
-      - emojipedia
-      - imdb
-      - goodreads
       # === Other ===
       - currency
       - openmeteo
@@ -101,9 +76,6 @@ use_default_settings:
       - apple app store
       - fdroid
       - apk mirror
-      - steam
-      - openrepos
-      - national vulnerability database
       - lobste.rs
       - hackernews
       - mymemory translated
@@ -135,17 +107,20 @@ outgoing:
   max_request_timeout: 25.0
   pool_connections: 100
   pool_maxsize: 20
-  dns_resolver: "223.5.5.5"
-  # Uncomment below if you have a proxy
   # proxies:
   #   all://:
   #     - socks5h://127.0.0.1:1080
 
-# Increase timeout for slower engines
 engines:
+  - name: bing
+    timeout: 20.0
+  - name: bing images
+    timeout: 20.0
+  - name: bing news
+    timeout: 20.0
+  - name: bing videos
+    timeout: 20.0
   - name: wolframalpha
     timeout: 20.0
   - name: semantic scholar
-    timeout: 20.0
-  - name: bing
     timeout: 20.0
