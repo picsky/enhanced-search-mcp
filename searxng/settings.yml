@@ -76,8 +76,7 @@ use_default_settings:
       - huggingface spaces
       - ollama
       # === Wiki & Reference ===
-      - wikipedia
-      - wikidata
+      # wikipedia/wikidata removed: timeout on China servers
       - wikibooks
       - wiktionary
       - wikisource
@@ -136,7 +135,7 @@ outgoing:
   max_request_timeout: 25.0
   pool_connections: 100
   pool_maxsize: 20
-  dns_resolver: "1.1.1.1"
+  dns_resolver: "223.5.5.5"
   # Uncomment below if you have a proxy
   # proxies:
   #   all://:
@@ -144,9 +143,9 @@ outgoing:
 
 # Increase timeout for slower engines
 engines:
-  - name: wikipedia
-    timeout: 20.0
   - name: wolframalpha
     timeout: 20.0
   - name: semantic scholar
+    timeout: 20.0
+  - name: bing
     timeout: 20.0

@@ -20,6 +20,10 @@ services:
     volumes:
       - searxng_data:/usr/local/searxng/data
       - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
+    dns:
+      - 223.5.5.5
+      - 119.29.29.29
+      - 8.8.8.8
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/"]
