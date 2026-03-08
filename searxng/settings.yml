@@ -1,0 +1,152 @@
+# SearXNG settings - optimized for China network (verified engines only)
+use_default_settings:
+  engines:
+    keep_only:
+      # === General Search (verified working from China) ===
+      - bing
+      - baidu
+      - sogou
+      - 360search
+      - mojeek
+      - presearch
+      # === Images ===
+      - bing images
+      - baidu images
+      - sogou images
+      - mojeek images
+      - presearch images
+      - unsplash
+      - pexels
+      - pixabay images
+      - adobe stock
+      - artic
+      - deviantart
+      - openverse
+      - svgrepo
+      - selfhst icons
+      - devicons
+      - lucide
+      # === News ===
+      - bing news
+      - mojeek news
+      - presearch news
+      - reuters
+      # === Videos ===
+      - bing videos
+      - bilibili
+      - iqiyi
+      - acfun
+      - niconico
+      - presearch videos
+      - pixabay videos
+      # === Academic & Science ===
+      - arxiv
+      - pubmed
+      - semantic scholar
+      - crossref
+      - openalex
+      - openairepublications
+      - openairedatasets
+      # === Code & Dev (verified working) ===
+      - github
+      - gitlab
+      - gitea.com
+      - codeberg
+      - sourcehut
+      - bitbucket
+      - stackoverflow
+      - superuser
+      - askubuntu
+      - discuss.python
+      - pypi
+      - npm
+      - crates.io
+      - pub.dev
+      - hex
+      - hoogle
+      - lib.rs
+      - rubygems
+      - packagist
+      - pkg.go.dev
+      - docker hub
+      - anaconda
+      - metacpan
+      - huggingface
+      - huggingface datasets
+      - huggingface spaces
+      - ollama
+      # === Wiki & Reference ===
+      - wikipedia
+      - wikidata
+      - wikibooks
+      - wiktionary
+      - wikisource
+      - mdn
+      - microsoft learn
+      - arch linux wiki
+      - gentoo
+      - nixos wiki
+      - alpine linux packages
+      - wordnik
+      - etymonline
+      - emojipedia
+      - imdb
+      - goodreads
+      # === Other ===
+      - currency
+      - openmeteo
+      - wolframalpha
+      - openstreetmap
+      - photon
+      - apple maps
+      - apple app store
+      - fdroid
+      - apk mirror
+      - steam
+      - openrepos
+      - national vulnerability database
+      - lobste.rs
+      - hackernews
+      - mymemory translated
+
+general:
+  instance_name: "Local SearXNG (CN)"
+  debug: false
+  enable_metrics: false
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  default_lang: "all"
+  formats:
+    - html
+    - json
+    - csv
+
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  secret_key: "changeme123_local_searxng"
+  limiter: false
+  image_proxy: true
+  http_protocol_version: "1.1"
+
+outgoing:
+  request_timeout: 15.0
+  max_request_timeout: 25.0
+  pool_connections: 100
+  pool_maxsize: 20
+  dns_resolver: "1.1.1.1"
+  # Uncomment below if you have a proxy
+  # proxies:
+  #   all://:
+  #     - socks5h://127.0.0.1:1080
+
+# Increase timeout for slower engines
+engines:
+  - name: wikipedia
+    timeout: 20.0
+  - name: wolframalpha
+    timeout: 20.0
+  - name: semantic scholar
+    timeout: 20.0

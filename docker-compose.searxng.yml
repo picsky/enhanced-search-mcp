@@ -1,0 +1,16 @@
+services:
+  searxng:
+    image: docker.1ms.run/searxng/searxng:latest
+    container_name: searxng-local
+    ports:
+      - "8888:8080"
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8888/
+      - INSTANCE_NAME=local-searxng
+    volumes:
+      - searxng_data:/usr/local/searxng/data
+      - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
+    restart: unless-stopped
+
+volumes:
+  searxng_data:

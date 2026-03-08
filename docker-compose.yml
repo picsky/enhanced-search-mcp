@@ -1,0 +1,48 @@
+# Enhanced Search MCP - Docker Compose
+# Usage:
+#   cp .env.example .env  # Edit as needed
+#   docker compose up -d
+#
+# Profiles:
+#   default  -> SearXNG only
+#   cache    -> SearXNG + Redis
+#   docker compose --profile cache up -d
+
+services:
+  searxng:
+    image: ${SEARXNG_IMAGE:-searxng/searxng:latest}
+    container_name: searxng
+    ports:
+      - "${SEARXNG_PORT:-8888}:8080"
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:${SEARXNG_PORT:-8888}/
+      - INSTANCE_NAME=enhanced-search-searxng
+    volumes:
+      - searxng_data:/usr/local/searxng/data
+      - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  redis:
+    image: ${REDIS_IMAGE:-redis:7-alpine}
+    container_name: searxng-redis
+    profiles: ["cache"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  searxng_data:
+  redis_data:
