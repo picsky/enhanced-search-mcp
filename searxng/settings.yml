@@ -111,16 +111,151 @@ outgoing:
   #   all://:
   #     - socks5h://127.0.0.1:1080
 
+# Enable all kept engines (many are disabled by default in SearXNG)
 engines:
+  # === General Search ===
   - name: bing
+    disabled: false
     timeout: 20.0
+  - name: baidu
+    disabled: false
+  - name: sogou
+    disabled: false
+  - name: 360search
+    disabled: false
+  - name: mojeek
+    disabled: false
+  - name: presearch
+    disabled: false
+  # === Images ===
   - name: bing images
+    disabled: false
     timeout: 20.0
+  - name: baidu images
+    disabled: false
+  - name: sogou images
+    disabled: false
+  - name: mojeek images
+    disabled: false
+  - name: presearch images
+    disabled: false
+  - name: unsplash
+    disabled: false
+  - name: pexels
+    disabled: false
+  - name: pixabay images
+    disabled: false
+  # === News ===
   - name: bing news
+    disabled: false
     timeout: 20.0
+  - name: mojeek news
+    disabled: false
+  - name: presearch news
+    disabled: false
+  # === Videos ===
   - name: bing videos
+    disabled: false
     timeout: 20.0
-  - name: wolframalpha
-    timeout: 20.0
+  - name: bilibili
+    disabled: false
+  - name: iqiyi
+    disabled: false
+  - name: acfun
+    disabled: false
+  - name: presearch videos
+    disabled: false
+  # === Academic & Science ===
+  - name: arxiv
+    disabled: false
+  - name: pubmed
+    disabled: false
   - name: semantic scholar
+    disabled: false
     timeout: 20.0
+  - name: crossref
+    disabled: false
+  - name: openalex
+    disabled: false
+  # === Code & Dev ===
+  - name: github
+    disabled: false
+  - name: gitlab
+    disabled: false
+  - name: gitea.com
+    disabled: false
+  - name: codeberg
+    disabled: false
+  - name: sourcehut
+    disabled: false
+  - name: bitbucket
+    disabled: false
+  - name: stackoverflow
+    disabled: false
+  - name: superuser
+    disabled: false
+  - name: askubuntu
+    disabled: false
+  - name: pypi
+    disabled: false
+  - name: npm
+    disabled: false
+  - name: crates.io
+    disabled: false
+  - name: pub.dev
+    disabled: false
+  - name: lib.rs
+    disabled: false
+  - name: rubygems
+    disabled: false
+  - name: packagist
+    disabled: false
+  - name: pkg.go.dev
+    disabled: false
+  - name: docker hub
+    disabled: false
+  - name: anaconda
+    disabled: false
+  - name: metacpan
+    disabled: false
+  - name: huggingface
+    disabled: false
+  - name: ollama
+    disabled: false
+  # === Wiki & Reference ===
+  - name: mdn
+    disabled: false
+  - name: microsoft learn
+    disabled: false
+  - name: arch linux wiki
+    disabled: false
+  - name: wordnik
+    disabled: false
+  - name: etymonline
+    disabled: false
+  # === Other ===
+  - name: currency
+    disabled: false
+  - name: openmeteo
+    disabled: false
+  - name: wolframalpha
+    disabled: false
+    timeout: 20.0
+  - name: openstreetmap
+    disabled: false
+  - name: photon
+    disabled: false
+  - name: apple maps
+    disabled: false
+  - name: apple app store
+    disabled: false
+  - name: fdroid
+    disabled: false
+  - name: apk mirror
+    disabled: false
+  - name: lobste.rs
+    disabled: false
+  - name: hackernews
+    disabled: false
+  - name: mymemory translated
+    disabled: false
